@@ -80,6 +80,9 @@ If neither Razorpay nor Stripe is configured, the app uses a local demo checkout
 - `npm test`
 - `npm run build`
 
+## Demonstration Video
+- Google Drive: https://drive.google.com/file/d/1PeiRmrMUDwEXz1DFk78eHN8ApzomOAcE/view?usp=sharing
+
 ## Notes
 - `npm run lint` is mapped to `npm run typecheck` in this repository.
 - The app is designed to show the state transitions clearly, not hide them behind optimistic UI.
