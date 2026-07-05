@@ -1,3 +1,4 @@
+import { ReplayDuplicateWebhookButton } from '@/components/replay-duplicate-webhook-button';
 import { formatMoney, getPlanById } from '@/lib/domain';
 import { getStore } from '@/lib/store';
 
@@ -54,6 +55,9 @@ export default async function CheckoutSuccessPage({ searchParams }: { searchPara
             <div className="notice">
               Webhook status: {subscription?.latestPaymentId === payment?.id ? 'applied exactly once' : 'pending or not linked yet'}
             </div>
+            {payment?.provider === 'razorpay' && payment.providerPaymentIntentId ? (
+              <ReplayDuplicateWebhookButton orderId={payment.providerCheckoutSessionId ?? sessionId ?? 'unknown'} paymentId={payment.providerPaymentIntentId} />
+            ) : null}
             <a className="button button-primary" href="/dashboard">Open dashboard</a>
             <a className="button button-secondary" href="/">Back to pricing</a>
           </div>
